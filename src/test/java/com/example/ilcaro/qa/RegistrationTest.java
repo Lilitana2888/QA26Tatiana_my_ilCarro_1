@@ -46,7 +46,8 @@ public class RegistrationTest {
        wd.findElement(By.id("password")).sendKeys("Abc12345");
 
         wd.findElement(By.id("check_policy")).click();
-        WebElement btnYalla = wd.findElement(By.cssSelector(".yalla_yalla__1Jxk6"));
+      //  WebElement btnYalla = wd.findElement(By.cssSelector(".yalla_yalla__1Jxk6"));work
+        WebElement btnYalla = wd.findElement(By.className("yalla_yalla__1Jxk6"));
        Boolean yallabtn = btnYalla.isEnabled();
        if(yallabtn = true)
        {
