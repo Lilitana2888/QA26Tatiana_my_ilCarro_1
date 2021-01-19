@@ -1,21 +1,16 @@
-package com.example.ilcaro.qa;
+package com.example.ilcaro.qa.tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 
 public class LoginTest extends TestBase {
 
 
     @BeforeMethod
     public void ensurePreconditions() {
-        if (isUserLoggedIn()) {
-            clickLogoutBtnOnHeader();
+        if (app.getUserHelper().isUserLoggedIn()) {
+            app.getUserHelper().clickLogoutBtnOnHeader();
         }
     }
 
@@ -28,16 +23,16 @@ public class LoginTest extends TestBase {
     @Test
     public void testLogin() throws InterruptedException {
 
-        clickLoginBtn();
+        app.getUserHelper().clickLoginBtn();
 
-        fillLoginForm("kupidon19711610893762495@gmail.com", "Abc12345");
+        app.getUserHelper().fillLoginForm("kupidon19711610893762495@gmail.com", "Abc12345");
         //click to yalla btn
         //  clickByCss("[type='submit']");
-        pausa(2000);
+        app.getUserHelper().pausa(2000);
         //clickToYallaBtn();no work
-        clickByCss("[type='submit']");
+        app.getUserHelper().clickByCss("[type='submit']");
 
-        Assert.assertTrue(isUserLoggedIn());
+        Assert.assertTrue(app.getUserHelper().isUserLoggedIn());
     }
 
 
