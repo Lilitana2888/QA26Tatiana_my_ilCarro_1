@@ -1,5 +1,6 @@
 package com.example.ilcaro.qa.application;
 
+import com.example.ilcaro.qa.model.Car;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -19,36 +20,31 @@ public class CarHelper extends HelperBase{
         return isElementPresent(By.xpath("//h3[contains(.,'Let the car work')]"));
     }
 
-    public void fillCarForm(String country, String address, String distance,
-                            String serial_number, String brand, String model,
-                            String year, String address1, String fuel_consumption,
-                            String fuel, String transmition, String wheelsDrive,
-                            String horsepower, String torque, String doors,
-                            String seats, String clasS, String about, String type_feature, String price)
+    public void fillCarForm(Car car)
 
     {
-        typeBy(By.cssSelector(".country"),country);
-        typeBy(By.cssSelector(".address"), address);
-        typeBy(By.cssSelector(".distance_included"), distance);
+        typeBy(By.cssSelector(".country"), car.getCountry());
+        typeBy(By.cssSelector(".address"), car.getAddress());
+        typeBy(By.cssSelector(".distance_included"), car.getDistance());
 
-        typeBy(By.cssSelector(".serial_number"), serial_number);
-        typeBy(By.cssSelector(".brand"), brand);
-        typeBy(By.cssSelector(".model"), model);
-        typeBy(By.cssSelector(".year"), year);
-        typeBy(By.cssSelector(".engine"), address1);
-        typeBy(By.cssSelector(".fuel_consumption"), fuel_consumption);
-        typeBy(By.cssSelector(".fuel"), fuel);
-        typeBy(By.cssSelector(".transmition"), transmition);
+        typeBy(By.cssSelector(".serial_number"), car.getSerial_number());
+        typeBy(By.cssSelector(".brand"), car.getBrand());
+        typeBy(By.cssSelector(".model"), car.getModel());
+        typeBy(By.cssSelector(".year"), car.getYear());
+        typeBy(By.cssSelector(".engine"), car.getEngine());
+        typeBy(By.cssSelector(".fuel_consumption"), car.getFuel_consumption());
+        typeBy(By.cssSelector(".fuel"), car.getFuel());
+        typeBy(By.cssSelector(".transmition"), car.getTransmition());
 
-        typeBy(By.cssSelector(".wd"), wheelsDrive);
-        typeBy(By.cssSelector(".horsepower"), horsepower);
-        typeBy(By.cssSelector(".torque"), torque);
-        typeBy(By.cssSelector(".doors"), doors);
-        typeBy(By.cssSelector(".seats"), seats);
-        typeBy(By.cssSelector(".class"), clasS);//
-        typeBy(By.cssSelector("[name='about']"), about);
-        typeBy(By.cssSelector(".type_feature"), type_feature);
-        typeBy(By.cssSelector(".price"), price);
+        typeBy(By.cssSelector(".wd"), car.getWheelsDrive());
+        typeBy(By.cssSelector(".horsepower"), car.getHorsepower());
+        typeBy(By.cssSelector(".torque"), car.getTorque());
+        typeBy(By.cssSelector(".doors"), car.getDoors());
+        typeBy(By.cssSelector(".seats"), car.getSeats());
+        typeBy(By.cssSelector(".class"), car.getClasS());//
+        typeBy(By.cssSelector("[name='about']"), car.getAbout());
+        typeBy(By.cssSelector(".type_feature"), car.getType_feature());
+        typeBy(By.cssSelector(".price"), car.getPrice());
 
     }
     public void clickOnSubmitBtn()

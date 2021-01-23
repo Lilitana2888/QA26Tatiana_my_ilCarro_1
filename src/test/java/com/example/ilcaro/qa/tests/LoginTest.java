@@ -1,5 +1,6 @@
 package com.example.ilcaro.qa.tests;
 
+import com.example.ilcaro.qa.model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -25,7 +26,9 @@ public class LoginTest extends TestBase {
 
         app.getUserHelper().clickLoginBtn();
 
-        app.getUserHelper().fillLoginForm("kupidon19711610893762495@gmail.com", "Abc12345");
+      //  app.getUserHelper().fillLoginForm("kupidon19711610893762495@gmail.com", "Abc12345");
+        app.getUserHelper().fillLoginForm(new User().withEmail("kupidon19711610893762495@gmail.com")
+        .withPswd( "Abc12345"));
         //click to yalla btn
         //  clickByCss("[type='submit']");
         app.getUserHelper().pausa(2000);

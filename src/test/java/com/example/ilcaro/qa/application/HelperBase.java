@@ -25,11 +25,20 @@ public class HelperBase {
 
 
     public void typeBy(By loc, String str) {
-
+        if(str != null)
         wd.findElement(loc).click();
         wd.findElement(loc).clear();
         wd.findElement(loc).sendKeys(str);
     }
+
+    public void typeByCss(String cssSelector, String str) {
+
+        if(str != null)
+            clickByCss(cssSelector);
+        wd.findElement(By.cssSelector(cssSelector)).clear();
+        wd.findElement(By.cssSelector(cssSelector)).sendKeys(str);
+    }
+
     public void clickByCss(String cssSelector) {
         wd.findElement(By.cssSelector(cssSelector)).click();
     }
@@ -41,6 +50,7 @@ public class HelperBase {
     public void clickLoginBtn() {
         clickByCss("a[href='/login']");
     }
+
 // for click to elements if don't see his to page use Actions
     public void click(By loc) {
 
@@ -49,12 +59,7 @@ public class HelperBase {
       //  wd.findElement(loc).click();
     }
 
-    public void typeByCss(String cssSelector, String str) {
 
-        clickByCss(cssSelector);
-        wd.findElement(By.cssSelector(cssSelector)).clear();
-        wd.findElement(By.cssSelector(cssSelector)).sendKeys(str);
-    }
     public boolean isElementPresent(By locator) {
         return wd.findElements(locator).size() > 0;
     }
